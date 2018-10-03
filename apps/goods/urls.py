@@ -1,0 +1,10 @@
+from django.conf.urls import url
+from goods.views import IndexView,DetailView, ListView
+
+from goods import views
+
+urlpatterns = [
+    url(r'^index$',IndexView.as_view(),name='index'),
+    url(r'^goods/(?P<goods_id>\d+)$', DetailView.as_view(), name='detail'),
+    url(r'^list/(?P<type_id>\d+)/(?P<page>\d+)$', ListView.as_view(), name='list'), # 列表页
+]
